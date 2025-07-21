@@ -20,7 +20,6 @@ spec:
           ui:options:
             allowedHosts:
               - github.com
-
     - title: Local path to clone into
       required:
         - path
@@ -29,7 +28,6 @@ spec:
           title: Clone path
           type: string
           description: Path on your local machine
-
     - title: Port to use (default: 3001)
       properties:
         port:
@@ -44,14 +42,12 @@ spec:
       input:
         url: ${{ parameters.repoUrl }}
         targetPath: ${{ parameters.path }}
-
     - id: install
       name: Install dependencies
       action: run:command
       input:
         command: 'npm install'
         workingDirectory: ${{ parameters.path }}
-
     - id: start
       name: Start development server
       action: run:command
