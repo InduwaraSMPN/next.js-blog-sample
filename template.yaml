@@ -10,7 +10,8 @@ spec:
 
   parameters:
     - title: Git repository for the React app
-      required: [ repoUrl ]
+      required:
+        - repoUrl
       properties:
         repoUrl:
           title: Repository URL
@@ -19,13 +20,16 @@ spec:
           ui:options:
             allowedHosts:
               - github.com
+
     - title: Local path to clone into
-      required: [ path ]
+      required:
+        - path
       properties:
         path:
           title: Clone path
           type: string
           description: Path on your local machine
+
     - title: Port to use (default: 3001)
       properties:
         port:
@@ -39,21 +43,21 @@ spec:
       action: fetch:plain
       input:
         url: ${{ parameters.repoUrl }}
-        path: ${{ parameters.path }}
+        targetPath: ${{ parameters.path }}
 
     - id: install
       name: Install dependencies
       action: run:command
       input:
         command: 'npm install'
-        workingDirectory: '${{ parameters.path }}'
+        workingDirectory: ${{ parameters.path }}
 
     - id: start
       name: Start development server
       action: run:command
       input:
         command: 'npm start -- --port ${{ parameters.port }}'
-        workingDirectory: '${{ parameters.path }}'
+        workingDirectory: ${{ parameters.path }}
 
   output:
     links:
