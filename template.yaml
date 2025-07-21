@@ -5,7 +5,7 @@ metadata:
   title: Run React App Locally
   description: Clone, install, and launch a React app locally with a single action
 spec:
-  owner: dev-team
+  owner: integrations-team
   type: tool
 
   parameters:
