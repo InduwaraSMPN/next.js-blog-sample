@@ -28,7 +28,7 @@ spec:
           title: Clone path
           type: string
           description: Path on your local machine
-    - title: Port to use (default: 3001)
+    - title: Port to use for the development server
       properties:
         port:
           title: Dev server port
