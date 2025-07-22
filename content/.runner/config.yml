@@ -1,0 +1,17 @@
+# Runner Plugin Configuration for Next.js Blog Sample
+# This configuration enables the Backstage Runner Plugin to deploy this Next.js blog application
+runner:
+  type: docker
+  dockerfile: ./Dockerfile
+  ports: [3000]
+  environment:
+    NODE_ENV: production
+    PORT: "3000"
+  healthCheck:
+    path: /api/health
+    interval: 30s
+    timeout: 10s
+  build:
+    context: .
+    args:
+      BUILD_ENV: production

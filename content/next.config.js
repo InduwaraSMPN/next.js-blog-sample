@@ -6,7 +6,9 @@ const withNextra = require("nextra")({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // any configs you need
+  // Enable standalone output for Docker deployment
+  output: 'standalone',
+  // any other configs you need
 };
 
 module.exports = withNextra(nextConfig);

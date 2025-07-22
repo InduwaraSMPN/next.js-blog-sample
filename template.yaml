@@ -4,9 +4,12 @@ kind: Template
 metadata:
   name: nextjs-blog-sample
   title: Next.js Blog Sample
-  description: A template for creating a Next.js blog.
+  description: A template for creating a Next.js blog with Docker deployment support via Backstage Runner Plugin.
   tags:
-    - localhost
+    - nextjs
+    - blog
+    - docker
+    - runner-plugin
 spec:
   owner: integrations-team
   type: website
@@ -76,3 +79,18 @@ spec:
       - title: Open in catalog
         icon: catalog
         entityRef: ${{ steps['register'].output.entityRef }}
+    text:
+      - title: Runner Plugin Ready
+        content: |
+          This Next.js blog is now configured for deployment with the Backstage Runner Plugin!
+
+          **Features included:**
+          - Docker configuration optimized for Next.js
+          - Health check endpoint at `/api/health`
+          - Runner Plugin annotations in catalog-info.yaml
+          - Production-ready Dockerfile with multi-stage build
+
+          **Next steps:**
+          1. Navigate to the component in the Backstage catalog
+          2. Use the Runner Plugin to deploy with one-click
+          3. Access your blog at `http://localhost:3000` when running

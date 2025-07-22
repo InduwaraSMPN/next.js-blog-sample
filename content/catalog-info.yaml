@@ -3,10 +3,17 @@ kind: Component
 metadata:
   name: ${{ values.name }}
   description: A sample Next.js blog.
+  annotations:
+    # Runner Plugin annotations for Docker-based deployment
+    runner.backstage.io/enabled: "true"
+    runner.backstage.io/config-path: ".runner/config.yml"
+    runner.backstage.io/type: "docker"
   tags:
     - nextjs
     - blog
     - react
+    - docker
+    - runner-enabled
 spec:
   type: website
   lifecycle: experimental
