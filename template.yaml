@@ -10,6 +10,7 @@ metadata:
     - blog
     - docker
     - runner-plugin
+    - localhost
 spec:
   owner: integrations-team
   type: website
