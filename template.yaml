@@ -5,6 +5,8 @@ metadata:
   name: nextjs-blog-sample
   title: Next.js Blog Sample
   description: A template for creating a Next.js blog.
+  tags:
+    -localhost
 spec:
   owner: integrations-team
   type: website
