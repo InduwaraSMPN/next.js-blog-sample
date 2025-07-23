@@ -20,7 +20,7 @@ This template is fully configured for deployment with the **Backstage Runner Plu
 -   **Docker Configuration**: Multi-stage Dockerfile optimized for production
 -   **Health Monitoring**: Built-in health check endpoint at `/api/health`
 -   **Runner Annotations**: Pre-configured catalog-info.yaml with runner annotations
--   **Port Configuration**: Standardized on port 3000 for consistency
+-   **Port Configuration**: Standardized on port 3001 for consistency
 
 ### Quick Docker Deployment
 
@@ -32,7 +32,7 @@ npm run docker:build
 npm run docker:run
 ```
 
-The application will be available at `http://localhost:3000`
+The application will be available at `http://localhost:3001`
 
 https://demo.vercel.blog
 
@@ -43,9 +43,9 @@ https://demo.vercel.blog
 3.  Update the meta tags in `pages/_document.tsx`.
 4.  Update the posts inside `pages/posts/*.md` with your own content.
 
-## 🔧 How to Change the Port (e.g., 3000 → 3001)
+## 🔧 How to Change the Port (e.g., 3001 → 3001)
 
-If you need to change the default port, here are all the steps and modifications required. The following example changes the port from 3000 to 3001.
+If you need to change the default port, here are all the steps and modifications required. The following example changes the port from 3001 to 3001.
 
 ### **Files to Modify**
 
@@ -58,7 +58,7 @@ If you need to change the default port, here are all the steps and modifications
 
 ### **Summary of Changes**
 
-Here is a summary of all the code changes required to switch from port 3000 to 3001.
+Here is a summary of all the code changes required to switch from port 3001 to 3001.
 
 #### 1. **`.runner/config.yml`**
 
@@ -66,10 +66,10 @@ Here is a summary of all the code changes required to switch from port 3000 to 3
 runner:
   type: docker
   dockerfile: ./Dockerfile
-  ports: [3001]  # Changed from [3000]
+  ports: [3001]  # Changed from [3001]
   environment:
     NODE_ENV: production
-    PORT: "3001"  # Changed from "3000"
+    PORT: "3001"  # Changed from "3001"
     HOSTNAME: "0.0.0.0"
 ```
 
@@ -87,11 +87,11 @@ runner:
 
 ```dockerfile
 ENV NODE_ENV=production
-ENV PORT=3001  # Changed from 3000
+ENV PORT=3001  # Changed from 3001
 ENV HOSTNAME=0.0.0.0
 
 # Expose port
-EXPOSE 3001  # Changed from 3000
+EXPOSE 3001  # Changed from 3001
 ```
 
 #### 4. **`healthcheck.js`**
@@ -99,7 +99,7 @@ EXPOSE 3001  # Changed from 3000
 ```javascript
 const options = {
   host: 'localhost',
-  port: process.env.PORT || 3001,  // Changed from 3000
+  port: process.env.PORT || 3001,  // Changed from 3001
   path: '/api/health',
   timeout: 2000,
 };
@@ -108,7 +108,7 @@ const options = {
 #### 5. **`pages/api/health.ts`**
 
 ```typescript
-port: process.env.PORT || '3001'  // Changed from '3000'
+port: process.env.PORT || '3001'  // Changed from '3001'
 ```
 
 ### **🚀 Testing Steps**
@@ -127,7 +127,7 @@ port: process.env.PORT || '3001'  // Changed from '3000'
     -   ✅ `http://localhost:3001`
     -   ✅ Health check: `http://localhost:3001/api/health`
 
-The template will now be fully configured to run on port 3001 instead of 3000! 🎉
+The template will now be fully configured to run on port 3001 instead of 3001! 🎉
 
 ## Deploy your own
 
@@ -180,6 +180,6 @@ The application includes a health check endpoint at `/api/health` that returns:
   "uptime": 123.456,
   "environment": "production",
   "version": "1.0.0",
-  "port": "3000"
+  "port": "3001"
 }
 ```
