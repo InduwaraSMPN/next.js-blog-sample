@@ -1,13 +1,14 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: ${{ values.name }}
+  name: blog
   description: A sample Next.js blog.
   annotations:
     # Runner Plugin annotations for Docker-based deployment
     runner.backstage.io/enabled: "true"
     runner.backstage.io/config-path: ".runner/config.yml"
     runner.backstage.io/type: "docker"
+    github.com/project-slug: InduwaraSMPN/Next.js-Blog-Application
   tags:
     - nextjs
     - blog
