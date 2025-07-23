@@ -46,6 +46,9 @@ COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 
+# Copy health check script
+COPY healthcheck.js ./
+
 # Change ownership to nextjs user
 USER nextjs
 
